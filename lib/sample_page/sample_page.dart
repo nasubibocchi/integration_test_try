@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:integration_test_try/sample_page/sample_page_view_model.dart';
+import 'package:integration_test_try/second_page/second_page.dart';
 
 class SamplePage extends HookConsumerWidget {
   const SamplePage({Key? key, required this.title}) : super(key: key);
@@ -33,6 +34,14 @@ class SamplePage extends HookConsumerWidget {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              key: const Key('page route button to 2nd'),
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SecondPage())),
+                child: const Text('to 2nd page')),
           ],
         ),
       ),
